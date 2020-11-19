@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
+import { Counter } from './components/organisms/Counter';
 
 function App() {
   return (
-    <div>
-      Begin hier met het bouwen van de applicatie!
-    </div>
+    <Counter />
   );
 }
 
