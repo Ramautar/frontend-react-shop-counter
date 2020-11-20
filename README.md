@@ -58,18 +58,22 @@ Doordat de nieuwe count op meerdere plekken wordt gebruikt (in het log-bericht e
 
 ### Array waarde
 Voor de logItems wordt er een array gebruikt om deze bij te houden. Om de array weer aan de state toe te kenen is het makkelijker om hier eerst de nieuwe waarde aan toe te voegen voordat je deze weer naar de state schrijft. Bij het gebruik van `push` is dit zeker het geval. Deze geeft namelijk als resultaat het aantal items in de array en niet de array zelf. Je kunt door deconstructing wel in de `useState` een array uitbreiden,
+
 ```javascript
 // Item toevoegen met `push`
 logItems.push(`Decrement to: ${newCount}`)
 setLog(logItems);
 ```
+
 ```javascript
-// Item toevoegen met `push`
+// Item toevoegen met `deconstructing`
+// Eerst deconstructen we de oude array in de nieuwe array en voegen vervolgens het nieuwe item toe
 setLog([
     ...logItems,
     `Decrement to: ${newCount}`,
 ]);
 ```
+Beide opties zijn goed en valide om te grbruiken.
 
 ## Componenten op basis van een array
 `Log` is een mooi voorbeeld van het ittereren door een array en met de betreffende waarde een coponent maken. Voor React zijn componenten op het zelfde niveau gelijk aan een array dat betekend het volgende:
