@@ -63,7 +63,43 @@ logItems.push(`Decrement to: ${newCount}`)
 setLog(logItems);
 ```
 
+## Componenten op basis van een array
+`Log` is een mooi voorbeeld van het ittereren door een array en met de betreffende waarde een coponent maken. Voor React zijn componenten op het zelfde niveau gelijk aan een array dat betekend het volgende:
+```javascript
+<>
+    <li>test 1</li>
+    <li>test 2</li>
+    <li>test 3</li>
+</>
+```
+is voor React gelijk aan
+```javascript
+[
+    <li>test 1</li>,
+    <li>test 2</li>,
+    <li>test 3</li>,
+]
+```
+In `Log` wordt een array meegegeven aan de prop `logItems`. Nu kunnen we door de array ittereren om van elk item een component te maken. Door dit met `map` te doen krijg je ook weer een array terug als resultaat. Dit zorgt er dus voor dat:
+```javascript
+{logItems.map((logItem, index) => (
+    <LogItem key={index}>{logItem}</LogItem>
+))}
+```
+het volgende resultaatopleverd:
+```javascript
+[
+    <LogItem key={0}>item 1</LogItem>,
+    <LogItem key={1}>item 2</LogItem>,
+    <LogItem key={2}>item 3</LogItem>,
+]
+```
+Zoals je ziet is dat dan weer gelijk aan het eerste voorbeeld.
 
+## En.....
+Ik hoop dat dit wat extra duidelijkheid heeft gegeven over ook de uitleg en de stof zoals deze in de les is behandeld. Mochten er vragen opkomen, mag je deze ook voor de les stellen. Ik kan dan kijken of ik ze eventueel mee kan nemen in de les, zodat ook anderen hier wat van kunnen leren.
+
+## Fin.
 
 ---
 ---
