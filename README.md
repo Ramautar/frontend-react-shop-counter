@@ -57,10 +57,18 @@ In `Counter` wordt 2 keer de useState gebruikt. 1 keer voor de `count` en 1 om d
 Doordat de nieuwe count op meerdere plekken wordt gebruikt (in het log-bericht en voor het zetten van de nieuwe count) heb ik hiervoor eerst een nieuwe const aangemaakt. Hierdoor hoef je de nieuwe waardew maar 1 keer te berekenen. Voor een applicatie als deze zal dat geen performancewinst opleveren, maar als je een complexe berekening zou moeten doen, kan dit zeker een performance winst zijn.
 
 ### Array waarde
-Voor de logItems wordt er een array gebruikt om deze bij te houden. Om de array weer aan de state toe te kenen is het makkelijker om hier eerst de nieuwe waarde aan toe te voegen voordat je deze weer naar de state schrijft.
+Voor de logItems wordt er een array gebruikt om deze bij te houden. Om de array weer aan de state toe te kenen is het makkelijker om hier eerst de nieuwe waarde aan toe te voegen voordat je deze weer naar de state schrijft. Bij het gebruik van `push` is dit zeker het geval. Deze geeft namelijk als resultaat het aantal items in de array en niet de array zelf. Je kunt door deconstructing wel in de `useState` een array uitbreiden,
 ```javascript
+// Item toevoegen met `push`
 logItems.push(`Decrement to: ${newCount}`)
 setLog(logItems);
+```
+```javascript
+// Item toevoegen met `push`
+setLog([
+    ...logItems,
+    `Decrement to: ${newCount}`,
+]);
 ```
 
 ## Componenten op basis van een array
